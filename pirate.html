@@ -23,7 +23,7 @@
         <p>Click on the locations to search for treasure, beware the traps.</p>
         <p id="locations" class="alert alert-info" style="width: 20rem;">Number of locations checked is zero.</p>
         <p id="penalty" class="alert alert-warning" style="width: 10rem;">Penalty is zero.</p>
-        <p class="alert alert-primary" style="width: 10rem;">Click for help.</p>
+        <p class="alert alert-primary" style="width: 10rem;" onclick="help()">Click for help.</p>
         <p id="help" class="alert alert-success" style="width: 10rem;">Help report.</p>
     </div>
     
@@ -140,7 +140,7 @@
         function help() {
             let lastRow = parseInt(lastCheck / 5);
             let treasureRow = parseInt(treasureLocation / 5);
-            let result = "";
+            let result = " ";
             let lastCol = lastCheck % 5;
             let treasureCol = treasureLocation % 5;
             let rowDifference = 0;
@@ -159,8 +159,6 @@
             document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
             document.getElementById("help").innerHTML = result;
         }
-
-
     </script>
 
 
