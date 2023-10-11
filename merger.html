@@ -4,6 +4,10 @@
 <head>
     <title>Merger</title>
     <style>
+        body{
+            text-align: center;
+        }
+
         .flex-container {
             display: flex;
             flex-direction: row;
@@ -18,6 +22,7 @@
             font-size: 30px;
         }
 
+
         /* Responsive layout */
         @media (max-width: 600px) {
             .flex-container {
@@ -31,7 +36,7 @@
 <body>
     <h2>Sri Sai Krishna Bathula builds a merger.</h2>
     <label class="label" for="inputElement">Input </label>
-    <input type="text" id="inputField" name="inputElement" placeholder="Enter text" value="">
+    <input type="text" id="inputField" name="inputElement" placeholder="Enter text" value=""><br><br>
 
     <div class="flex-container" id="target">
         <div class="merger">row item 1</div>
@@ -42,6 +47,8 @@
     <p> Press the button to create an new element of type div and then add it to the container.
     </p>
     <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="addFront()">Add Front</button>
 
 
 </body>
@@ -56,7 +63,27 @@
         /* add it to the container */
         let container = document.getElementById('target')
         container.appendChild(element)
+    }
 
+    function remove(){
+        let mergerItems = document.getElementsByClassName("merger");
+        if(mergerItems.length>0){
+            let len = mergerItems.length;
+            let index = Math.floor(len/2);
+            if(index >= 0 && index < len){
+                mergerItems[index].remove();
+            }
+        }
+    }
+
+    function addFront(){
+        let element = document.createElement("div");
+		let value = document.getElementById("inputField").value;
+		element.style.color = "black";
+		element.innerHTML = value;
+		element.className = "merger";
+		let container = document.getElementById("target");
+		container.insertBefore(element, container.firstChild);
     }
 </script>
 
