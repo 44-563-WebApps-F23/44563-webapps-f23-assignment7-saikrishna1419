@@ -27,7 +27,7 @@
         <p id="help" class="alert alert-success" style="width: 10rem;">Help report.</p>
     </div>
 
-    <button type="button" class="btn btn-primary" onclick="resetGame()">New Game</button>
+    <button type="button" class="btn btn-primary" onclick="reset()">Reset</button>
   
     
     <!--Part 3-->
@@ -136,22 +136,22 @@
                     penalty = penalty + 1;
                 }
                 checkCount++;
-                document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount + ".";
+                document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount;
                 document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
                 lastCheck = position;
             }
         }
         function help() {
-            let lastRow = parseInt(lastCheck / 5);
+            let endRow = parseInt(lastCheck / 5);
             let treasureRow = parseInt(treasureLocation / 5);
             let result = " ";
-            let lastColumn = lastCheck % 5;
+            let endColumn = lastCheck % 5;
             let treasureColumn = treasureLocation % 5;
 
-           if (Math.abs(lastRow - treasureRow) <= 1 && Math.abs(lastColumn - treasureColumn) <= 1){
+           if (Math.abs(endRow - treasureRow) <= 1 && Math.abs(endColumn - treasureColumn) <= 1){
                 result = "Can smell it";
             } 
-           else if (Math.abs(lastRow - treasureRow) <= 2 && Math.abs(lastColumn - treasureColumn) <= 2){
+           else if (Math.abs(endRow - treasureRow) <= 2 && Math.abs(endColumn - treasureColumn) <= 2){
                 result = "Close Matie";
             }
             else {
@@ -162,7 +162,7 @@
             document.getElementById("help").innerHTML = result;
         }
 
-        function resetGame() {
+        function reset() {
             treasureLocation = Math.floor(Math.random() * 25);
             trapLocation = Math.floor(Math.random() * 25);
             checkCount = 0
