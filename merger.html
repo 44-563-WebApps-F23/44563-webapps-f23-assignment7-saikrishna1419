@@ -4,7 +4,7 @@
 <head>
     <title>Merger</title>
     <style>
-        body{
+        body {
             text-align: center;
         }
 
@@ -47,46 +47,60 @@
 
     <p> Press the button to create an new element of type div and then add it to the container.
     </p>
-    <button onclick="newDivInput()">Add end</button>
+    <button onclick="addEnd()">Add end</button>
     <button onclick="remove()">Remove</button>
     <button onclick="addFront()">Add Front</button>
+    <button onclick="swap()">Swap</button>
 
+    <script>
+        function addEnd() {
+            /* make the div and its text */
+            let element = document.createElement("div")
+            let value = document.getElementById("inputField").value;
+            element.innerHTML = value;
+            element.style.color = "black"
+            element.className = "merge";
+            /* add it to the container */
+            let container = document.getElementById('target')
+            container.appendChild(element)
+        }
 
-</body>
-<script>
-    function newDivInput() {
-        /* make the div and its text */
-        let element = document.createElement("div")
-        let value = document.getElementById("inputField").value;
-        element.innerHTML = value;
-        element.style.color = "black"
-        element.className = "merge";
-        /* add it to the container */
-        let container = document.getElementById('target')
-        container.appendChild(element)
-    }
-
-    //Part 8
-    function remove(){
-        let mergerItems = document.getElementsByClassName("merger");
-        if(mergerItems.length>0){
-            let len = mergerItems.length;
-            let index = Math.floor(len/2);
-            if(index >= 0 && index < len){
-                mergerItems[index].remove();
+        //Part 8
+        function remove() {
+            let mergerItems = document.getElementsByClassName("merger");
+            if (mergerItems.length > 0) {
+                let len = mergerItems.length;
+                let index = Math.floor(len / 2);
+                if (index >= 0 && index < len) {
+                    mergerItems[index].remove();
+                }
             }
         }
-    }
 
-    function addFront(){
-        let element = document.createElement("div");
-		let value = document.getElementById("inputField").value;
-		element.style.color = "black";
-		element.innerHTML = value;
-		element.className = "merger";
-		let container = document.getElementById("target");
-		container.insertBefore(element, container.firstChild);
-    }
-</script>
+        function addFront() {
+            let element = document.createElement("div");
+            let value = document.getElementById("inputField").value;
+            element.style.color = "black";
+            element.innerHTML = value;
+            element.className = "merger";
+            let container = document.getElementById("target");
+            container.insertBefore(element, container.firstChild);
+        }
+
+        function swap() {
+            let mergerItems = document.getElementsByClassName("merger");
+            let container = document.getElementById("target");
+            let swapper1 = Math.floor(Math.random() * mergerItems.length);
+            let swapper2 = Math.floor(Math.random() * mergerItems.length);
+            let firstItem = document.getElementsByClassName("merger")[swapper1];
+            let secondItem = document.getElementsByClassName("merger")[swapper2];
+            if (mergerItems.length > 1) {
+                let temp = firstItem.innerHTML;
+                firstItem.innerHTML = secondItem.innerHTML;
+                secondItem.innerHTML = temp;
+            }
+        }
+    </script>
+</body>
 
 </html>
