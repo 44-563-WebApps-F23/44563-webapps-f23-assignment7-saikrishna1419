@@ -34,9 +34,10 @@
 </head>
 
 <body>
+    <!--Part 7-->
     <h2>Sri Sai Krishna Bathula builds a merger.</h2>
-    <label class="label" for="inputElement">Input </label>
-    <input type="text" id="inputField" name="inputElement" placeholder="Enter text" value=""><br><br>
+    <label class="label" for="inputElement">Input Text </label>
+    <input type="text" id="inputField" name="inputElement" placeholder="Enter text"><br><br>
 
     <div class="flex-container" id="target">
         <div class="merger">row item 1</div>
@@ -46,14 +47,14 @@
 
     <p> Press the button to create an new element of type div and then add it to the container.
     </p>
-    <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="newDivInput()">Add end</button>
     <button onclick="remove()">Remove</button>
     <button onclick="addFront()">Add Front</button>
 
 
 </body>
 <script>
-    function makeNewDiv() {
+    function newDivInput() {
         /* make the div and its text */
         let element = document.createElement("div")
         let value = document.getElementById("inputField").value;
@@ -65,6 +66,7 @@
         container.appendChild(element)
     }
 
+    //Part 8
     function remove(){
         let mergerItems = document.getElementsByClassName("merger");
         if(mergerItems.length>0){

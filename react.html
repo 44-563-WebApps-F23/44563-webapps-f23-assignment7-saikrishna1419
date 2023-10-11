@@ -10,8 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-  <h2>Sri Sai Krishna speed check</h2>
+<!--Part 5-->
+  <h2 style="color: rgb(236, 156, 103);">Sri Sai Krishna speed check</h2>
 
   <div id="target">Your time</div>
   <div id="counter">Count</div>
@@ -19,15 +19,14 @@
   <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
   <button type="button" class="btn btn-danger" onclick="recordTime()">React</button>
   
-  <p id="target">I will become red </p>
-  
   <script> 
   var reactTime = undefined;
   function recordTime() {
     reactTime = Date.now();
     console.log(reactTime);
   }
-
+  
+//Part 6
   function startTime() {
     let countdown = Math.floor(Math.random() * 9) + 2
     for (let i = 0; i < 9; i++) {
@@ -41,8 +40,8 @@
                     document.getElementById("target").innerHTML = "Too Slow";
                 } else {
                     let endTime = Date.now();
-                    let elapsed = endTime - reactTime;
-                    document.getElementById("target").innerHTML = "Time was " + elapsed;
+                    let elapsedTime = endTime - reactTime;
+                    document.getElementById("target").innerHTML = "Time was " + elapsedTime;
                 }
             }, 8000);
         }
